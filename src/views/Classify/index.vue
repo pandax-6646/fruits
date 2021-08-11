@@ -35,15 +35,18 @@ export default {
       newList: [],
     };
   },
+
   components: {
     Tabber,
     Search,
     SliderBar,
     GoodsList,
   },
+
   created() {
     this.getCategoryTitle();
   },
+  
   methods: {
     // 获取分类的左边列表
     getCategoryTitle() {
