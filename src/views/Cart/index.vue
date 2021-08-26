@@ -44,6 +44,7 @@
 import CartGoodsLIst from "./children/CartGoodsList";
 import { cartRequest } from "@/api";
 import { preOrderRequest } from "@/api";
+import { Dialog } from "vant";
 export default {
   name: "cart",
   data() {
@@ -156,6 +157,22 @@ export default {
 
     // 删除按钮
     delBtn() {
+      let self = this;
+      Dialog.confirm({
+        title: "提示",
+        message: "是否删除选中的内容",
+      })
+        .then(() => {
+          console.log(self);
+          this.delCartGoodsHandle();
+        })
+        .catch((e) => {
+          this.$toast.success("已取消");
+        });
+    },
+
+    // 删除购物车里商品的函数
+    delCartGoodsHandle() {
       // 拿到选中商品的数组列表
       let selectGoodsCartList = this.cartList.filter(
         (goods) => goods.isChecked

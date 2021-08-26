@@ -40,24 +40,34 @@
 
 <script>
 import { loginRequest } from "@/api";
+import { Dialog } from "vant";
 export default {
   name: "my-setting",
   methods: {
     logout() {
-      loginRequest
-        .logout()
-        .then((res) => {
-          if (res.code == 666) {
-            this.$store.commit("updataLoginState", false);
-            this.$store.commit("updataPhone", "");
-            this.$store.commit("updataToken", "");
-            this.$toast.success("退出登录成功");
-            setTimeout(() => {
-              this.$router.push("/product");
-            }, 500);
-          }
+      Dialog.confirm({
+        title: "标题",
+        message: "弹窗内容",
+      })
+        .then(() => {
+          loginRequest
+            .logout()
+            .then((res) => {
+              if (res.code == 666) {
+                this.$store.commit("updataLoginState", false);
+                this.$store.commit("updataPhone", "");
+                this.$store.commit("updataToken", "");
+                this.$toast.success("退出登录成功");
+                setTimeout(() => {
+                  this.$router.push("/product");
+                }, 500);
+              }
+            })
+            .catch((err) => this.$toast.fail(err));
         })
-        .catch((err) => this.$toast.fail(err));
+        .catch(() => {
+          this.$toast.success("已取消");
+        });
     },
   },
 };

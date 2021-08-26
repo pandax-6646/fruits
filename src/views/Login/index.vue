@@ -48,7 +48,7 @@ export default {
   mixins: [toast],
   data() {
     return {
-      phone: "18720514724",
+      phone: "",
       loginPhone: "",
       // 验证码字符
       smsCode: "",

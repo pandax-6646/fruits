@@ -44,7 +44,7 @@
             <div class="fg-1 flex wp-100 fw-w" v-if="order.carts.length == 1">
               <p class="fs-15">{{order.carts[0].masterName}}</p>
               <p class="flex jc-sb wp-100">
-                <span class="fs-22 ml-10"
+                <span class="fs-18 ml-10"
                   >￥{{ (order.allFee / 100).toFixed(2) }}</span
                 >
                 <span class="fc-999 mr-10 fs-14"
