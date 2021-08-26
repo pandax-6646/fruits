@@ -96,7 +96,7 @@
             <span>￥ {{ (item.minPrice / 1000).toFixed(2) }}</span>
             <p class="fc-999 mr-5">
               <span class="fs-12">销量:</span>
-              <span>{{
+              <span class="fs-12">{{
                 item.inventory > 10000
                   ? `${(item.inventory / 10000).toFixed(1)} 万`
                   : item.inventory
@@ -137,19 +137,6 @@ export default {
     if (this.swipers.length == 0) {
       this.getHomeInitData();
     }
-
-    // // 获取函数式路由传参
-    // let { userName, age } = this.$route.params;
-    // console.log("userName", userName);
-    // console.log("age", age);
-
-    // // 获取query 路由跳转传参
-    // let query = this.$route.query;
-    // console.log(query);
-
-    // // 获取 标签式动态路由参数
-    // let id = this.$route.params.productId;
-    // console.log(id);
   },
   methods: {
     getHomeInitData() {
@@ -335,7 +322,6 @@ export default {
     }
 
     p {
-      max-width: 165px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
